@@ -1,4 +1,7 @@
 # PRISM-daily-data
+
+FEELE FREE TO MAKE MY CODE MORE EFFICIENT!
+
 Instructions and code to download daily prism data that is manageable for computer memory
 
 Create sub-folders in location of path1 for each year of data desired named that year
