@@ -13,3 +13,5 @@ Outfile path should be different from path1 main folder
 If program fails to run due to connection error then delete all prism files in sub-folder (1984-1986 in example)
 
 gsub functions make long variable names shorter by deleting the string in quotes - necessary to read into sas
+
+change tmax to tmin or ppt or other variables as decided
