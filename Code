@@ -1,13 +1,15 @@
-for(i in 1:10){
-  year=1983+i
+
+for(i in 0:37){
+  year=1984+i
 d1 = paste0(year,"-01-01")
 d2 = paste0(year,"-12-31")
-path1 = paste0("C:/Users/Wilson Collins/Documents/Papers--Write/PRF-RI/PRISM/Daily/tmax/",year)
-outfile = paste0("C:/Users/Wilson Collins/Documents/Papers--Write/PRF-RI/PRISM/Daily/data/",year,".csv")
-  
+path1 = paste0("C:/Users/Wilson Collins/Documents/Papers--Write/PRF-RI/PRISM/Daily/ppt/",year)
+outfile = paste0("C:/Users/Wilson Collins/Documents/Papers--Write/PRF-RI/PRISM/Daily/ppt/",year,".csv")
+
+dir.create(path1)
 library(prism)
 options(prism.path = path1)
-get_prism_dailys(type="tmax",minDate = d1, maxDate = d2, keepZip=FALSE)
+get_prism_dailys(type="ppt",minDate = d1, maxDate = d2, keepZip=FALSE)
 library(devtools) #needed to download prism from github
 library(reshape2) ##melting dataframes
 library(dplyr) #data wrangling
@@ -24,5 +26,6 @@ names(df) <- gsub("PRISM_tmax_stable_","",names(df))
 names(df) <- gsub("_bil","",names(df))
 names(df) <- gsub("4kmD2_","",names(df))
 write.csv(df,file=outfile)
+unlink(paste0("C:/Users/Wilson Collins/Documents/Papers--Write/PRF-RI/PRISM/Daily/ppt/",year),recursive = TRUE)
 rm(list = ls())
 }
